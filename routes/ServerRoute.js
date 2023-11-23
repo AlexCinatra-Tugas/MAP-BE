@@ -8,7 +8,7 @@ const router = express.Router()
 router.get('/api/mission', getMission)
 
 // get specific data by id
-router.get('/api/mission:id', getMissionById)
+router.get('/api/mission/:id', getMissionById)
 
 // posting data
 router.post('/api/mission', createMission)
@@ -17,6 +17,6 @@ router.post('/api/mission', createMission)
 router.patch('/api/mission/:id', updateMission)
 
 // delete data by spesicif id
-router.delete('/api/mission', deleteMission)
+router.delete('/api/mission/:id', deleteMission)
 
 export default router

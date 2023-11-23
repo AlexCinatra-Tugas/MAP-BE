@@ -11,10 +11,10 @@ datasource db {
 }
 
 model misidata {
-  id                    Int      @id @default(autoincrement())
-  feature_id            String
-  feature_name          String
-  feature_geometry_type String
-  feature_coordinates   Json
-  createdAt             DateTime @default(now())
+  id         Int      @id @default(autoincrement())
+  type       String
+  id_name    String
+  properties Json
+  geometri   Json
+  createdAt  DateTime @default(now())
 }

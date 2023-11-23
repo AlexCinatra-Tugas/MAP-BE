@@ -15,7 +15,7 @@ export const getMissionById = async (req, res) => {
     try {
         const response = await prisma.misidata.findUnique({
             where: {
-                id: parseInt(req.params.id)
+                id: Number(req.params.id)
             }
         });
         res.status(200).json(response);
@@ -25,14 +25,14 @@ export const getMissionById = async (req, res) => {
 }
 
 export const createMission = async (req, res) => {
-    const { missionName, status, nodes } = req.body;
-    console.log(req.body)
+    const { type, id_name, properties, geometri } = req.body
     try {
         const row = await prisma.misidata.create({
             data: {
-                missionName: missionName,
-                status: status,
-                nodes: nodes
+                type: type,
+                id_name: id_name,
+                properties: properties,
+                geometri: geometri
             }
         });
         res.status(201).json(row);
@@ -42,16 +42,17 @@ export const createMission = async (req, res) => {
 }
 
 export const updateMission = async (req, res) => {
-    const { missionName, status, nodes } = req.body;
+    const { type, id_name, properties, geometri } = req.body
     try {
         const misidata = await prisma.misidata.update({
             where: {
-                id: Number(req.params.id)
+                id: parseInt(req.params.id)
             },
             data: {
-                missionName: missionName,
-                status: status,
-                nodes: nodes
+                type: type,
+                id_name: id_name,
+                properties: properties,
+                geometri: geometri
             }
         });
         res.status(200).json(misidata);
@@ -61,10 +62,11 @@ export const updateMission = async (req, res) => {
 }
 
 export const deleteMission = async (req, res) => {
+    const id = req.params.id
     try {
         const misidata = await prisma.misidata.delete({
             where: {
-                id: Number(req.params.id)
+                id: parseInt(id)
             }
         });
         res.status(200).json(misidata);
