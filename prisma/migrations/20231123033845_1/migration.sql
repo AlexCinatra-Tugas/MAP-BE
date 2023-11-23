@@ -2,7 +2,7 @@
 CREATE TABLE `misidata` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `missionName` VARCHAR(191) NOT NULL,
-    `status` BOOLEAN NOT NULL,
+    `type` VARCHAR(191) NOT NULL,
     `nodes` INTEGER NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 

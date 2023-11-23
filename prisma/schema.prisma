@@ -13,7 +13,7 @@ datasource db {
 model misidata {
   id          Int      @id @default(autoincrement())
   missionName String
-  status      Boolean
+  type        String
   nodes       Int
   createdAt   DateTime @default(now())
 }
