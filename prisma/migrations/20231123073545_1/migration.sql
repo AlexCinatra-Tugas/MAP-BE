@@ -1,9 +1,10 @@
 -- CreateTable
 CREATE TABLE `misidata` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `missionName` VARCHAR(191) NOT NULL,
-    `type` VARCHAR(191) NOT NULL,
-    `nodes` INTEGER NOT NULL,
+    `feature_id` VARCHAR(191) NOT NULL,
+    `feature_name` VARCHAR(191) NOT NULL,
+    `feature_geometry_type` VARCHAR(191) NOT NULL,
+    `feature_coordinates` JSON NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
     PRIMARY KEY (`id`)
