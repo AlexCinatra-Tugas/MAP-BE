@@ -25,14 +25,14 @@ export const getMissionById = async (req, res) => {
 }
 
 export const createMission = async (req, res) => {
-    const { type, id_name, properties, geometri } = req.body
+    const { type, properties, geometry } = req.body
     try {
         const row = await prisma.misidata.create({
             data: {
                 type: type,
-                id_name: id_name,
+
                 properties: properties,
-                geometri: geometri
+                geometry: geometry
             }
         });
         res.status(201).json(row);
@@ -42,7 +42,7 @@ export const createMission = async (req, res) => {
 }
 
 export const updateMission = async (req, res) => {
-    const { type, id_name, properties, geometri } = req.body
+    const { type, properties, geometry } = req.body
     try {
         const misidata = await prisma.misidata.update({
             where: {
@@ -50,9 +50,9 @@ export const updateMission = async (req, res) => {
             },
             data: {
                 type: type,
-                id_name: id_name,
+
                 properties: properties,
-                geometri: geometri
+                geometry: geometry
             }
         });
         res.status(200).json(misidata);
