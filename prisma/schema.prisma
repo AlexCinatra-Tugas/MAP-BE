@@ -11,9 +11,8 @@ datasource db {
 }
 
 model misidata {
-  id         Int      @id @default(autoincrement())
-  type       String
-  properties Json
-  geometry   Json
-  createdAt  DateTime @default(now())
+  id        Int      @id @default(autoincrement())
+  type      String
+  data      Json
+  createdAt DateTime @default(now())
 }
