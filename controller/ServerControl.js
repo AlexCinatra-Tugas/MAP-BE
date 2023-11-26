@@ -28,11 +28,11 @@ export const getMissionById = async (req, res) => {
 
 export const createMission = async (req, res) => {
     console.log("data has been created")
-    const { type, data } = req.body
+    const { name, data } = req.body
     try {
         const row = await prisma.misidata.create({
             data: {
-                type: type,
+                name: name,
                 data: data
             }
         });
@@ -44,14 +44,14 @@ export const createMission = async (req, res) => {
 
 export const updateMission = async (req, res) => {
     console.log("data has been updated")
-    const { type, data } = req.body
+    const { name, data } = req.body
     try {
         const misidata = await prisma.misidata.update({
             where: {
                 id: parseInt(req.params.id)
             },
             data: {
-                type: type,
+                name: name,
                 data: data
             }
         });

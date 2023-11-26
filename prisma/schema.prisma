@@ -12,7 +12,8 @@ datasource db {
 
 model misidata {
   id        Int      @id @default(autoincrement())
-  type      String
+  type      String   @default("FeatureCollection")
+  name      String
   data      Json
   createdAt DateTime @default(now())
 }
